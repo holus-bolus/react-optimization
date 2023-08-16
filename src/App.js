@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Button from './component/UI/Button/Button';
 
 function App() {
+  console.log('The app is running');
+  const [showParagraph, setShowParagraph] = useState(false);
+  const toggleParagraphHandler = () => {
+    setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hi there</h1>
+      {showParagraph && <p>This is new</p>}
+      <Button onClick={toggleParagraphHandler}>Show the paragraph</Button>
     </div>
   );
 }
